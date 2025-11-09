@@ -2,94 +2,132 @@
 
 ## Présentation du projet
 Ce dépôt contient deux notebooks Jupyter retraçant l’évolution complète du projet d’analyse et de modélisation de séries temporelles, du traitement initial des données jusqu’à la prévision finale.
+L'objectif est de partir d'une série brute, la comprendre, la transformer, tester sa stationnarité, puis construire et comparer plusieurs modèles de prévision.
 
-### Notebooks inclus
-1. **TP_Précédant_time_series_David_DELGADO.ipynb**  
-   → Analyse exploratoire, préparation des données, tests de stationnarité, premières modélisations simples.
+Deux notebooks structurent la démarche :
+
+1. **TP_Précedent_time_series_David_DELGADO.ipynb**  
+   Analyse exploratoire et construction des briques fondamentales de traitement des séries temporelles.
 
 2. **TP_Final_time_series_David_DELGADO.ipynb**  
-   → Modélisation avancée (ARIMA, SARIMA, SARIMAX), évaluation des modèles, prévisions à long terme, interprétation des résultats.
+   Approfondissement de la modélisation, sélection des modèles, prévisions finales et mise en forme pédagogique.
 
 ---
 
 ## Objectifs pédagogiques
-- Comprendre la logique de traitement et de transformation des séries temporelles.  
-- Appliquer les tests de stationnarité (ADF, KPSS).  
-- Identifier et ajuster les paramètres optimaux des modèles ARIMA / SARIMA.  
-- Évaluer les performances via les critères AIC, BIC et la validation visuelle.  
-- Produire des prévisions fiables à moyen terme et les interpréter graphiquement.
 
----
-
-## Dépendances nécessaires
-
-Avant d’exécuter les notebooks, assurez-vous d’installer les bibliothèques suivantes :
-
-```bash
-pip install pandas numpy matplotlib seaborn statsmodels scikit-learn jupyter
-```
-
-Optionnel :
-```bash
-pip install pmdarima
-```
-
----
-
-## 📂 Structure du dépôt
-
-```
-├── TP_Initial_time_series_David_DELGADO.ipynb
-├── TP_Final_time_series_David_DELGADO.ipynb
-└── README_Time_Series_David_Delgado_FR.md
-```
-
----
-
-## 🚀 Exécution des notebooks
-
-1. Ouvrir un terminal dans le répertoire du projet.  
-2. Lancer Jupyter Notebook ou JupyterLab :
-
-```bash
-jupyter notebook
-```
-ou
-```bash
-jupyter lab
-```
-3. Exécuter les cellules dans l’ordre.  
-4. Les visualisations (tendances, autocorrélations, prévisions) seront générées automatiquement.
+- Comprendre les spécificités des séries temporelles (tendance, saisonnalité, bruit).
+- Savoir transformer une série pour la rendre exploitable (log, différenciation, moyenne mobile, décalages).
+- Vérifier la stationnarité (test ADF).
+- Identifier et ajuster des modèles ARIMA / SARIMA (et dérivés).
+- Utiliser les critères d’information (AIC, BIC) pour comparer les modèles.
+- Produire et interpréter des prévisions sur plusieurs périodes futures.
+- Illustrer la démarche complète de bout en bout dans un cadre reproductible.
 
 ---
 
 ## Contenu des notebooks
 
-### **TP Initial**
-- Chargement et nettoyage des données
-- Visualisation des tendances saisonnières
-- Tests ADF et différenciation
-- Identification des ordres (p,d,q)
-- Premier modèle ARIMA simple
+### TP_Précedent_time_series_David_DELGADO.ipynb
 
-### **TP Final**
-- Sélection des meilleurs paramètres (AIC, BIC)
-- SARIMA et SARIMAX (prise en compte saisonnalité et variables exogènes)
-- Prévisions log-différenciées et reconstruction des valeurs réelles
-- Analyse des intervalles de confiance
-- Interprétation économique des résultats
+Notebook de construction et de compréhension :
+
+- Chargement et mise en forme de la série temporelle.
+- Indexation temporelle et manipulation de base.
+- Transformations :
+  - Passage en log.
+  - Lissage et moyennes mobiles.
+  - Décalages temporels (différences).
+- Gestion des valeurs manquantes induites par les transformations.
+- Premiers tests de stationnarité (ADF).
+- Introduction aux premiers modèles ARIMA / SARIMA sur la série des broilers.
+
+### TP_Final_time_series_David_DELGADO.ipynb
+
+Notebook final, structuré comme un support de cours complet :
+
+- Rappel du contexte : consommation de poulet (broilers) comme cas d'étude.
+- Analyse visuelle détaillée :
+  - Tendances globales.
+  - Changements de régime et comportements saisonniers.
+  - Zoom sur certaines périodes.
+- Approche modélisation :
+  - Construction et comparaison de modèles ARIMA et SARIMA.
+  - Utilisation des critères AIC pour sélectionner les paramètres.
+  - Vérification des résidus et validité du modèle.
+  - Introduction à SARIMAX / variables exogènes (structure prête).
+  - Introduction à Prophet comme alternative de modélisation.
+- Génération de prévisions sur plusieurs périodes futures.
+- Visualisation des intervalles de confiance et interprétation des résultats.
+
+---
+
+## Jeu de données
+
+- Série temporelle : consommation de poulet (broilers).
+- Données agrégées dans le temps (fréquence régulière).
+- Utilisée comme fil conducteur pour illustrer toutes les étapes :
+  préparation → tests → modélisation → prévisions.
+
+---
+
+## Dépendances nécessaires
+
+Installer les bibliothèques suivantes avant d'exécuter les notebooks :
+
+```bash
+pip install pandas numpy matplotlib statsmodels jupyter
+```
+
+Pour les parties avancées (recommandé) :
+
+```bash
+pip install pmdarima prophet scipy
+```
+
+> Remarque : selon l’environnement, le package Prophet peut être installé sous le nom `prophet` ou `cmdstanpy` + `prophet`. Vérifier la documentation officielle si nécessaire.
+
+---
+
+## Exécution
+
+1. Cloner le dépôt :
+
+```bash
+git clone https://github.com/daviddelgadop/timeseries.git
+cd timeseries
+```
+
+2. Lancer Jupyter :
+
+```bash
+jupyter notebook
+```
+ou
+
+```bash
+jupyter lab
+```
+
+3. Ouvrir et exécuter dans l’ordre :
+   - `TP_Précedent_time_series_David_DELGADO.ipynb`
+   - `TP_Final_time_series_David_DELGADO.ipynb`
 
 ---
 
 ## Résultats attendus
-- Détermination du modèle le plus performant pour la série analysée.
-- Prévision fiable sur plusieurs périodes futures (ex : 60 mois).  
-- Graphiques clairs montrant la tendance et la qualité d’ajustement.
+
+- Identification d’un (ou plusieurs) modèles pertinents pour la série étudiée.
+- Prévisions lisibles et cohérentes avec le comportement historique.
+- Support pédagogique clair montrant :
+  - la logique des transformations,
+  - la construction des modèles,
+  - la lecture critique des sorties (AIC, graphiques, résidus, intervalles).
 
 ---
 
-## Auteur
+## 👤 Auteur
+
 **David Delgado**  
 IA School – Master 2025‑2027  
-Projet : *Modélisation et prévision de séries temporelles en Python*
-
+*Modélisation et prévision de séries temporelles en Python*
