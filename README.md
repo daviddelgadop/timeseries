@@ -4,7 +4,7 @@
 Ce dépôt contient deux notebooks Jupyter retraçant l’évolution complète du projet d’analyse et de modélisation de séries temporelles, du traitement initial des données jusqu’à la prévision finale.
 
 ### Notebooks inclus
-1. **TP_Initial_time_series_David_DELGADO.ipynb**  
+1. **TP_Précédant_time_series_David_DELGADO.ipynb**  
    → Analyse exploratoire, préparation des données, tests de stationnarité, premières modélisations simples.
 
 2. **TP_Final_time_series_David_DELGADO.ipynb**  
